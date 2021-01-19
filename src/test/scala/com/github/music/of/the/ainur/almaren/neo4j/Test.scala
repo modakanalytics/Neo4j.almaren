@@ -1,10 +1,10 @@
-package com.github.music.of.the.ainur.almaren.solr
+package com.github.music.of.the.ainur.almaren.neo4j
 
 import org.apache.spark.sql.SaveMode
 import org.scalatest._
 import com.github.music.of.the.ainur.almaren.Almaren
 import com.github.music.of.the.ainur.almaren.builder.Core.Implicit
-import com.github.music.of.the.ainur.almaren.solr.Neo4j.Neo4jImplicit
+import com.github.music.of.the.ainur.almaren.neo4j.Neo4j.Neo4jImplicit
 
 class Test extends FunSuite with BeforeAndAfter {
 
