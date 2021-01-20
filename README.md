@@ -1,6 +1,6 @@
 # Neo4j Connector
 
-[![Build Status](https://travis-ci.com/modakanalytics/bigquery.almaren.svg?branch=master)](https://travis-ci.com/modakanalytics/neo4j.almaren)
+[![Build Status](https://travis-ci.com/modakanalytics/neo4j.almaren.svg?branch=master)](https://travis-ci.com/modakanalytics/neo4j.almaren)
 
 ```
 libraryDependencies += "com.github.music-of-the-ainur" %% "neo4j-almaren" % "0.1.0-2.4"
