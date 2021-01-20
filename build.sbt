@@ -44,7 +44,7 @@ ThisBuild / developers := List(
     name  = "Sridhar Mudiraj",
     email = "sridhar.mudiraj@modak.com",
     url   = url("https://github.com/music-of-the-ainur")
-  )
+  ),
     Developer(
     id    = "kiranreddy-modak",
     name  = "Kiran Bolla",
