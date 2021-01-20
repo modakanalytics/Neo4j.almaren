@@ -37,9 +37,9 @@ class Test extends FunSuite with BeforeAndAfter {
     .sourceSql("select * from person_info")
     .targetNeo4j(
       "bolt://localhost:7687",
+      Some("neo4j"),
+      Some("neo4j1234"),
       Map("labels" -> "Person",
-        "authentication.basic.username" -> "neo4j",
-        "authentication.basic.password" -> "neo4j1234",
         "node.keys" -> "first_name, last_name, country"),
       SaveMode.Overwrite
     ).batch
@@ -48,9 +48,9 @@ class Test extends FunSuite with BeforeAndAfter {
   val neo4jDf = almaren.builder
     .sourceNeo4j(
       "bolt://localhost:7687",
-      Map("labels" -> "Person",
-        "authentication.basic.username" -> "neo4j",
-        "authentication.basic.password" -> "neo4j1234")
+      Some("neo4j"),
+      Some("neo4j1234"),
+      Map("labels" -> "Person")
     ).batch
 
 

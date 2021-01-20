@@ -51,9 +51,9 @@ import com.github.music.of.the.ainur.almaren.neo4j.Neo4j.Neo4jImplicit
   val df = almaren.builder
     .sourceNeo4j(
       "bolt://localhost:7687",
-      Map("labels" -> "Person",
-        "authentication.basic.username" -> "neo4j",
-        "authentication.basic.password" -> "neo4j1234")
+      Some("neo4j"),
+      Some("neo4j1234"),
+      Map("labels" -> "Person")
     ).batch
 ```
 
@@ -93,9 +93,9 @@ import com.github.music.of.the.ainur.almaren.neo4j.Neo4j.Neo4jImplicit
     .sourceSql("select * from person_info")
     .targetNeo4j(
       "bolt://localhost:7687",
-      Map("labels" -> "Person",
-        "authentication.basic.username" -> "neo4j",
-        "authentication.basic.password" -> "neo4j1234"),
+      Some("neo4j"),
+      Some("neo4j1234"),
+      Map("labels" -> "Person"),
       SaveMode.ErrorIfExists
     ).batch
 
