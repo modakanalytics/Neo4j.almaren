@@ -71,6 +71,8 @@ import com.github.music.of.the.ainur.almaren.neo4j.Neo4j.Neo4jImplicit
 |  authentication.basic.password |Username to use for basic authentication type|
 |authentication.custom.credentials|These are the credentials authenticating the principal|
 |SaveMode|SaveMode is used to specify the expected behavior of saving a DataFrame to a data source.|
+|node.keys|Comma separated list of properties considered as node keys in case of you’re using SaveMode.Overwrite|
+
 
 For More Driver options check the following [link](https://neo4j.com/developer/spark/configuration/)
 

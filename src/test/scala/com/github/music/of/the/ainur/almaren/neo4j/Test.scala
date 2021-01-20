@@ -39,8 +39,9 @@ class Test extends FunSuite with BeforeAndAfter {
       "bolt://localhost:7687",
       Map("labels" -> "Person",
         "authentication.basic.username" -> "neo4j",
-        "authentication.basic.password" -> "neo4j1234"),
-      SaveMode.ErrorIfExists
+        "authentication.basic.password" -> "neo4j1234",
+        "node.keys" -> "first_name, last_name, country"),
+      SaveMode.Overwrite
     ).batch
 
   // Read Data From Neo4j
@@ -51,9 +52,6 @@ class Test extends FunSuite with BeforeAndAfter {
         "authentication.basic.username" -> "neo4j",
         "authentication.basic.password" -> "neo4j1234")
     ).batch
-
-  neo4jDf.printSchema
-  neo4jDf.show(false)
 
 
   test(df, neo4jDf.drop("<id>", "<lables>"), "Neo4j Read and Write")
