@@ -1,0 +1,42 @@
+language: scala
+
+jdk: openjdk8
+
+scala:
+  - 2.11.12
+
+cache:
+  directories:
+    - $HOME/.cache/coursier
+    - $HOME/.ivy2/cache
+    - $HOME/.sbt
+
+before_cache:
+  - sudo apt-get -y install perl
+  - rm -fv $HOME/.ivy2/.sbt.ivy.lock
+  - find $HOME/.ivy2/cache -name "ivydata-*.properties" -print -delete
+  - find $HOME/.sbt        -name "*.lock"               -print -delete
+
+env:
+  global:
+    - NEO4J_FILE_NAME=neo4j-community
+    - NEO4J=3.5.26
+
+install:
+  - wget http://dist.neo4j.org/${NEO4J_FILE_NAME}-${NEO4J}-unix.tar.gz
+  - tar xzf ${NEO4J_FILE_NAME}-${NEO4J}-unix.tar.gz
+  - ${PWD}/${NEO4J_FILE_NAME}-${NEO4J}/bin/neo4j --version
+
+before_script:
+  - ${PWD}/${NEO4J_FILE_NAME}-${NEO4J}/bin/neo4j start
+  - sleep 15
+  - 'curl -H ''Content-Type: application/json'' -XPOST -d ''{"password":"neo4j1234"}'' -u neo4j:neo4j http://localhost:7474/user/neo4j/password'
+  - ${PWD}/${NEO4J_FILE_NAME}-${NEO4J}/bin/neo4j stop
+  - sleep 15
+  - ${PWD}/${NEO4J_FILE_NAME}-${NEO4J}/bin/neo4j start
+
+after_script:
+  - ${PWD}/${NEO4J_FILE_NAME}-${NEO4J}/bin/neo4j stop
+
+script:
+  - sbt +test
