@@ -28,7 +28,7 @@ spark-shell --master "local[*]" --packages "com.github.music-of-the-ainur:almare
 | authentication.basic.username     | Username to use for basic authentication type    |
 |  authentication.basic.password  |Username to use for basic authentication type|
 |authentication.custom.credentials|These are the credentials authenticating the principal|
-| Label |  Label is a name or identifier to a Node or a Relationship in Neo4j Database. |
+| labels |  labels is a name or identifier to a Node or a Relationship in Neo4j Database. |
 |Nodes |  Nodes are often used to represent entities. The simplest possible graph is a single node.|
 |Relationship|  A relationship connects two nodes. Relationships organize nodes into structures, allowing a graph to resemble a list, a tree, a map, or a compound entity — any of which may be combined into yet more complex, richly inter-connected structures.|
 
