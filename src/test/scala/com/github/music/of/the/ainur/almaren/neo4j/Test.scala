@@ -32,7 +32,7 @@ class Test extends FunSuite with BeforeAndAfter {
   df.createOrReplaceTempView("person_info")
 
 
-  //wrie data fron noe4j
+  //write data fron noe4j
   val df1 = almaren.builder
     .sourceSql("select * from person_info")
     .targetNeo4j(
