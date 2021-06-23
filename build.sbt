@@ -7,7 +7,7 @@ lazy val scala212 = "2.12.10"
 crossScalaVersions := Seq(scala211,scala212)
 ThisBuild / scalaVersion := scala211
 
-val sparkVersion = "2.4.5"
+val sparkVersion = "2.4.0"
 
 scalacOptions ++= Seq("-deprecation", "-feature")
 
@@ -17,13 +17,21 @@ libraryDependencies ++= Seq(
   "com.github.music-of-the-ainur" %% "almaren-framework" % "0.9.0-2.4" % "provided",
   "com.typesafe.scala-logging" %% "scala-logging" % "3.9.0",
   "org.scalatest" %% "scalatest" % "3.0.5" % "test",
-  "org.neo4j" %% "neo4j-connector-apache-spark" % "4.0.2_for_spark_2.4"
+  "com.modak.neo4j" %% "neo4j-connector-apache-spark" % "4.0.2_for_spark_2.4"
 )
 
 enablePlugins(GitVersioning)
 
 resolvers +=
   "Sonatype OSS Snapshots" at "https://oss.sonatype.org/service/local/repositories/releases/content"
+
+scalacOptions ++= Seq("-deprecation", "-feature")
+
+ThisBuild / useCoursier := false
+
+resolvers += "nabu-releases" at "https://pkgs.dev.azure.com/nabu-backend/Nabu-Bots/_packaging/nabu-releases/maven/v1"
+credentials += Credentials(null, "pkgs.dev.azure.com", "nabu-backend", sys.env.getOrElse("AZURE_TOKEN", throw new Exception("AZURE_TOKEN environment variable is not set")))
+publishTo := Some("nabu-release" at "https://pkgs.dev.azure.com/nabu-backend/Nabu-Bots/_packaging/nabu-releases/maven/v1")
 
 ThisBuild / scmInfo := Some(
   ScmInfo(
