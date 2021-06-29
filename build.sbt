@@ -25,8 +25,6 @@ enablePlugins(GitVersioning)
 resolvers +=
   "Sonatype OSS Snapshots" at "https://oss.sonatype.org/service/local/repositories/releases/content"
 
-scalacOptions ++= Seq("-deprecation", "-feature")
-
 ThisBuild / useCoursier := false
 
 resolvers += "nabu-releases" at "https://pkgs.dev.azure.com/nabu-backend/Nabu-Bots/_packaging/nabu-releases/maven/v1"
