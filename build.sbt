@@ -22,11 +22,7 @@ libraryDependencies ++= Seq(
 
 enablePlugins(GitVersioning)
 
-resolvers += "Central Maven repository" at "https://repo.maven.apache.org/maven2"
-
-resolvers += ("Spark Packages Repo" at "http://dl.bintray.com/spark-packages/maven").withAllowInsecureProtocol(true)
-resolvers +=
-  "Sonatype OSS Snapshots" at "https://oss.sonatype.org/service/local/repositories/releases/content"
+resolvers += "Spark Packages Repo" at "http://dl.bintray.com/spark-packages/maven"
 
 ThisBuild / scmInfo := Some(
   ScmInfo(
