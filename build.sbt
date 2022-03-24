@@ -17,13 +17,12 @@ libraryDependencies ++= Seq(
   "com.github.music-of-the-ainur" %% "almaren-framework" % "0.9.3-2.4" % "provided",
   "com.typesafe.scala-logging" %% "scala-logging" % "3.9.0",
   "org.scalatest" %% "scalatest" % "3.0.5" % "test",
-  "org.neo4j" %% "neo4j-connector-apache-spark" % "4.0.1_for_spark_2.4"
-
+  "neo4j-contrib" %% "neo4j-connector-apache-spark" % "4.0.1"
 )
 
 enablePlugins(GitVersioning)
 
-resolvers += "Spark Packages Repo" at "http://dl.bintray.com/spark-packages/maven"
+resolvers += "Spark Packages Repo" at "https://repos.spark-packages.org"
 
 ThisBuild / scmInfo := Some(
   ScmInfo(
@@ -37,6 +36,12 @@ ThisBuild / developers := List(
     name  = "Daniel Mantovani",
     email = "daniel.mantovani@modak.com",
     url   = url("https://github.com/music-of-the-ainur")
+  ),
+  Developer(
+    id = "badrinathpatchikolla",
+    name = "Badrinath Patchikolla",
+    email = "badrinath.patchikolla@modakanalytics.com",
+    url = url("https://github.com/music-of-the-ainur")
   ),
   Developer(
     id    = "sridhar-sid",
