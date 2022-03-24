@@ -3,14 +3,14 @@
 [![Build Status](https://travis-ci.com/modakanalytics/neo4j.almaren.svg?branch=master)](https://travis-ci.com/modakanalytics/neo4j.almaren)
 
 ```
-libraryDependencies += "com.github.music-of-the-ainur" %% "neo4j-almaren" % "0.1.1-2.4"
+libraryDependencies += "com.github.music-of-the-ainur" %% "neo4j-almaren" % "0.1.1-3.1"
 ```
 
 Neo4j Connector was implemented using [https://github.com/neo4j-contrib/neo4j-spark-connector](https://github.com/neo4j-contrib/neo4j-spark-connector).
 For more details check the following [link](https://github.com/neo4j-contrib/neo4j-spark-connector).
 
 ```
-spark-shell --master "local[*]" --packages "com.github.music-of-the-ainur:almaren-framework_2.11:0.9.3-2.4,com.github.music-of-the-ainur:neo4j-almaren_2.11:0.1.1-2.4"
+spark-shell --master "local[*]" --packages "com.github.music-of-the-ainur:almaren-framework_2.11:0.9.3-3.1,com.github.music-of-the-ainur:neo4j-almaren_2.11:0.1.1-3.1"
 ```
 
 ## Source and Target
