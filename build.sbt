@@ -8,23 +8,24 @@ crossScalaVersions := Seq(scala211,scala212)
 ThisBuild / scalaVersion := scala211
 
 val sparkVersion = "2.4.0"
+val majorVersionReg = "([0-9]+\\.[0-9]+).{0,}".r
+
+val majorVersionReg(majorVersion) = sparkVersion
 
 scalacOptions ++= Seq("-deprecation", "-feature")
 
 libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-core" % sparkVersion % "provided",
   "org.apache.spark" %% "spark-sql" % sparkVersion % "provided",
-  "com.github.music-of-the-ainur" %% "almaren-framework" % "0.2.3-2-4" % "provided",
+  "com.github.music-of-the-ainur" %% "almaren-framework" % s"0.9.3-${majorVersion}" % "provided",
   "com.typesafe.scala-logging" %% "scala-logging" % "3.9.0",
   "org.scalatest" %% "scalatest" % "3.0.5" % "test",
-  "neo4j-contrib" %% "neo4j-connector-apache-spark" % "4.0.0"
+  "neo4j-contrib" %% "neo4j-connector-apache-spark" % "4.0.1"
 )
 
 enablePlugins(GitVersioning)
 
-resolvers += ("Spark Packages Repo" at "http://dl.bintray.com/spark-packages/maven").withAllowInsecureProtocol(true)
-resolvers +=
-  "Sonatype OSS Snapshots" at "https://oss.sonatype.org/service/local/repositories/releases/content"
+resolvers += "Spark Packages Repo" at "https://repos.spark-packages.org"
 
 ThisBuild / scmInfo := Some(
   ScmInfo(
@@ -38,6 +39,12 @@ ThisBuild / developers := List(
     name  = "Daniel Mantovani",
     email = "daniel.mantovani@modak.com",
     url   = url("https://github.com/music-of-the-ainur")
+  ),
+  Developer(
+    id = "badrinathpatchikolla",
+    name = "Badrinath Patchikolla",
+    email = "badrinath.patchikolla@modakanalytics.com",
+    url = url("https://github.com/music-of-the-ainur")
   ),
   Developer(
     id    = "sridhar-sid",
