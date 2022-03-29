@@ -10,7 +10,7 @@ Neo4j Connector was implemented using [https://github.com/neo4j-contrib/neo4j-sp
 For more details check the following [link](https://github.com/neo4j-contrib/neo4j-spark-connector).
 
 ```
-spark-shell --master "local[*]" --packages "com.github.music-of-the-ainur:almaren-framework_2.11:0.9.3-3.1,com.github.music-of-the-ainur:neo4j-almaren_2.11:0.1.1-3.1"
+spark-shell --master "local[*]" --packages "com.github.music-of-the-ainur:almaren-framework_2.12:0.9.3-$SPARK_VERSION,com.github.music-of-the-ainur:neo4j-almaren_2.12:0.1.1-$SPARK_VERSION"
 ```
 
 ## Source and Target
