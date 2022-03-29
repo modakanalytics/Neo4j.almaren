@@ -8,13 +8,16 @@ crossScalaVersions := Seq(scala211,scala212)
 ThisBuild / scalaVersion := scala211
 
 val sparkVersion = "2.4.0"
+val majorVersionReg = "([0-9]+\\.[0-9]+).{0,}".r
+
+val majorVersionReg(majorVersion) = sparkVersion
 
 scalacOptions ++= Seq("-deprecation", "-feature")
 
 libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-core" % sparkVersion % "provided",
   "org.apache.spark" %% "spark-sql" % sparkVersion % "provided",
-  "com.github.music-of-the-ainur" %% "almaren-framework" % "0.9.3-2.4" % "provided",
+  "com.github.music-of-the-ainur" %% "almaren-framework" % s"0.9.3-${majorVersion}" % "provided",
   "com.typesafe.scala-logging" %% "scala-logging" % "3.9.0",
   "org.scalatest" %% "scalatest" % "3.0.5" % "test",
   "neo4j-contrib" %% "neo4j-connector-apache-spark" % "4.0.1"
