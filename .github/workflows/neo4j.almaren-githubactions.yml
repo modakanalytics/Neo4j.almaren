@@ -37,7 +37,6 @@ jobs:
           tar xzf neo4j-community-3.5.26-unix.tar.gz
           ${PWD}/neo4j-community-3.5.26/bin/neo4j --version
           ${PWD}/neo4j-community-3.5.26/bin/neo4j start
-          'curl -H ''Content-Type: application/json'' -XPOST -d ''{"password":"neo4j1234"}'' -u neo4j:neo4j http://localhost:7474/user/neo4j/password'
       - name: Build and test scala version
         run: |
           PGPASSWORD="postgres" psql -c 'create database almaren;' -U postgres -h localhost 
