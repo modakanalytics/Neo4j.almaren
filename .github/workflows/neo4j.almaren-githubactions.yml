@@ -1,10 +1,19 @@
-name: Bigquery.Almaren
+name: Neo4j.Almaren
 on: [push, pull_request]
 
 jobs:
   Build:
     runs-on: ubuntu-20.04
     services:
+      neo4j:
+        image: "neo4j:3.5"
+        restart: "unless-stopped"
+        ports:
+          - "7474:7474"
+          - "7687:7687"
+        environment:
+          - neo4j-user: neo4j
+          - neo4j-password: neo4j1234
       postgres:
         image: postgres:13.4
         env:
@@ -30,13 +39,13 @@ jobs:
         run: |
           wget http://dist.neo4j.org/neo4j-community-3.5.26-unix.tar.gz
           tar xzf neo4j-community-3.5.26-unix.tar.gz
-          ${PWD}//neo4j-community-3.5.26/bin/neo4j --version
+          ${PWD}/neo4j-community-3.5.26/bin/neo4j --version
           ${PWD}/neo4j-community-3.5.26/bin/neo4j start
           'curl -H ''Content-Type: application/json'' -XPOST -d ''{"password":"neo4j1234"}'' -u neo4j:neo4j http://localhost:7474/user/neo4j/password'
       - name: Build and test scala version
         run: |
           PGPASSWORD="postgres" psql -c 'create database almaren;' -U postgres -h localhost 
-          PGPASSWORD="postgres" psql -c "ALTER USER postgres PASSWORD 'foo' ;" -U postgres -h localhost 
+          PGPASSWORD="postgres" psql -c "ALTER USER postgres PASSWORD 'postgres' ;" -U postgres -h localhost 
           PGPASSWORD="postgres" psql -c 'create role runner;' -U postgres -h localhost
           PGPASSWORD="postgres" psql -c 'ALTER ROLE "runner" WITH  LOGIN SUPERUSER INHERIT CREATEDB CREATEROLE REPLICATION;' -U postgres -h localhost
           sbt ++2.12.10 test
