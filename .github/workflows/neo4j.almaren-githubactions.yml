@@ -12,7 +12,7 @@ jobs:
           - 7687:7687
         env:
           - neo4j-user: neo4j
-          - neo4j-password: neo4j1234
+          - neo4j_password: ${{secrets.neo4j_password}}
       postgres:
         image: postgres:13.4
         env:
