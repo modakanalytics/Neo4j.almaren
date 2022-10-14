@@ -10,9 +10,6 @@ jobs:
         ports:
           - 7474:7474
           - 7687:7687
-        env:
-          - neo4j-user: neo4j
-          - neo4j_password: ${{secrets.neo4j_password}}
       postgres:
         image: postgres:13.4
         env:
