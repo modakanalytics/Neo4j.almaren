@@ -20,7 +20,6 @@ libraryDependencies ++= Seq(
   "com.github.music-of-the-ainur" %% "almaren-framework" % s"0.9.8-${majorVersion}" % "provided",
   "com.typesafe.scala-logging" %% "scala-logging" % "3.9.5",
   "org.scalatest" %% "scalatest" % "3.2.14" % "test",
-  //"neo4j-contrib" %% "neo4j-connector-apache-spark" % "4.0.1_for_spark_3"
   "org.neo4j" %% "neo4j-connector-apache-spark" % "4.1.5_for_spark_3"
 )
 
