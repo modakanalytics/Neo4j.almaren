@@ -1,6 +1,6 @@
 # Neo4j Connector
 
-[![Build Status](https://travis-ci.com/modakanalytics/neo4j.almaren.svg?branch=master)](https://travis-ci.com/modakanalytics/neo4j.almaren)
+[![Build Status](https://github.com/modakanalytics/neo4j.almaren/actions/workflows/neo4j.almaren-githubactions.yml/badge.svg)](https://github.com/modakanalytics/neo4j.almaren/actions/workflows/neo4j.almaren-githubactions.yml)
 
 To add neo4j dependency to your sbt build:
 
