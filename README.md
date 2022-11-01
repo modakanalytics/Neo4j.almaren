@@ -1,17 +1,43 @@
 # Neo4j Connector
 
-[![Build Status](https://travis-ci.com/modakanalytics/neo4j.almaren.svg?branch=master)](https://travis-ci.com/modakanalytics/neo4j.almaren)
+[![Build Status](https://github.com/modakanalytics/neo4j.almaren/actions/workflows/neo4j.almaren-githubactions.yml/badge.svg)](https://github.com/modakanalytics/neo4j.almaren/actions/workflows/neo4j.almaren-githubactions.yml)
+
+To add neo4j dependency to your sbt build:
 
 ```
-libraryDependencies += "com.github.music-of-the-ainur" %% "neo4j-almaren" % "0.1.2-3.1"
+libraryDependencies += "com.github.music-of-the-ainur" %% "neo4j-almaren" % "0.1.3-3.3"
 ```
 
 Neo4j Connector was implemented using [https://github.com/neo4j-contrib/neo4j-spark-connector](https://github.com/neo4j-contrib/neo4j-spark-connector).
 For more details check the following [link](https://github.com/neo4j-contrib/neo4j-spark-connector).
 
+To run in spark-shell:
+For 2.12:
 ```
-spark-shell --master "local[*]" --packages "com.github.music-of-the-ainur:almaren-framework_2.12:0.9.3-$SPARK_VERSION,com.github.music-of-the-ainur:neo4j-almaren_2.12:0.1.2-$SPARK_VERSION"
+spark-shell --master "local[*]" --packages "com.github.music-of-the-ainur:almaren-framework_2.12:0.9.8-3.3,com.github.music-of-the-ainur:neo4j-almaren_2.12:0.1.3-3.3"
 ```
+For 2.13:
+```
+spark-shell --master "local[*]" --packages "com.github.music-of-the-ainur:almaren-framework_2.13:0.9.8-3.3,com.github.music-of-the-ainur:neo4j-almaren_2.13:0.1.3-3.3"
+```
+
+### Connector Usage
+
+#### Maven / Ivy Package Usage
+The connector is also available from the
+[Maven Central](https://mvnrepository.com/artifact/com.github.music-of-the-ainur)
+repository. It can be used using the `--packages` option or the
+`spark.jars.packages` configuration property. Use the following value
+
+| version                    | Connector Artifact                                           |
+|----------------------------|--------------------------------------------------------------|
+| Spark 3.3.x and scala 2.13 | `com.github.music-of-the-ainur:neo4j-almaren_2.13:0.1.3-3.3` |
+| Spark 3.3.x and scala 2.12 | `com.github.music-of-the-ainur:neo4j-almaren_2.12:0.1.3-3.3` |
+| Spark 3.2.x and scala 2.12 | `com.github.music-of-the-ainur:neo4j-almaren_2.12:0.1.3-3.2` |
+| Spark 3.1.x and scala 2.12 | `com.github.music-of-the-ainur:neo4j-almaren_2.12:0.1.3-3.1` |
+| Spark 2.4.x and scala 2.12 | `com.github.music-of-the-ainur:neo4j-almaren_2.12:0.1.3-2.4` |
+| Spark 2.4.x and scala 2.11 | `com.github.music-of-the-ainur:neo4j-almaren_2.11:0.1.3-2.4` |
+
 
 ## Source and Target
 
