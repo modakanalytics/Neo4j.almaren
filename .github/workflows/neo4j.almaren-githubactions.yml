@@ -12,7 +12,7 @@ jobs:
           - 7687:7687
         env:
           neo4j-user: neo4j
-          neo4j-password: ${{secrets.NEO4J_PASSWORD}}
+          neo4j-password: neo4j
       postgres:
         image: postgres:13.4
         env:
@@ -51,6 +51,3 @@ jobs:
           find $HOME/.ivy2/cache                       -name "ivydata-*.properties" -delete || true
           find $HOME/.cache/coursier/v1                -name "ivydata-*.properties" -delete || true
           find $HOME/.sbt                              -name "*.lock"               -delete || true
-      - name: Stop neo4j service
-        run: |
-          ${PWD}/neo4j-community-3.5.26/bin/neo4j stop

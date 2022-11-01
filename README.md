@@ -12,9 +12,13 @@ Neo4j Connector was implemented using [https://github.com/neo4j-contrib/neo4j-sp
 For more details check the following [link](https://github.com/neo4j-contrib/neo4j-spark-connector).
 
 To run in spark-shell:
-
+For 2.12:
 ```
 spark-shell --master "local[*]" --packages "com.github.music-of-the-ainur:almaren-framework_2.12:0.9.8-3.3,com.github.music-of-the-ainur:neo4j-almaren_2.12:0.1.3-3.3"
+```
+For 2.13:
+```
+spark-shell --master "local[*]" --packages "com.github.music-of-the-ainur:almaren-framework_2.13:0.9.8-3.3,com.github.music-of-the-ainur:neo4j-almaren_2.13:0.1.3-3.3"
 ```
 
 ### Connector Usage
