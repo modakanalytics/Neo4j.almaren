@@ -28,7 +28,7 @@ jobs:
 
     steps:
       - name: Update NEO4j password
-        run:
+        run: |
           curl -H "Content-Type: application/json" -XPOST -d '{"password":"neo4j1234"}' -u neo4j:neo4j http://localhost:7474/user/neo4j/password
       - name : Check out repository code
         uses: actions/checkout@v2
