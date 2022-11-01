@@ -25,7 +25,11 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
+
     steps:
+      - name: Update NEO4j password
+        run:
+          curl -H "Content-Type: application/json" -XPOST -d '{"password":"neo4j1234"}' -u neo4j:neo4j http://localhost:7474/user/neo4j/password
       - name : Check out repository code
         uses: actions/checkout@v2
       - name: Setup JDK
@@ -34,12 +38,6 @@ jobs:
           distribution: temurin
           java-version: 8
           cache: sbt
-      - name: Setup neo4j in Build Machine
-        run: |
-          wget http://dist.neo4j.org/neo4j-community-3.5.26-unix.tar.gz
-          tar xzf neo4j-community-3.5.26-unix.tar.gz
-          ${PWD}/neo4j-community-3.5.26/bin/neo4j --version
-          ${PWD}/neo4j-community-3.5.26/bin/neo4j start
       - name: Build and test scala version
         run: |
           PGPASSWORD="postgres" psql -c 'create database almaren;' -U postgres -h localhost 
