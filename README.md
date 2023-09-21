@@ -5,7 +5,7 @@
 To add neo4j dependency to your sbt build:
 
 ```
-libraryDependencies += "com.github.music-of-the-ainur" %% "neo4j-almaren" % "0.1.4-3.3"
+libraryDependencies += "com.github.music-of-the-ainur" %% "neo4j-almaren" % "0.1.4-3.4"
 ```
 
 Neo4j Connector was implemented using [https://github.com/neo4j-contrib/neo4j-spark-connector](https://github.com/neo4j-contrib/neo4j-spark-connector).
@@ -14,11 +14,11 @@ For more details check the following [link](https://github.com/neo4j-contrib/neo
 To run in spark-shell:
 For 2.12:
 ```
-spark-shell --master "local[*]" --packages "com.github.music-of-the-ainur:almaren-framework_2.12:0.9.10-3.3,com.github.music-of-the-ainur:neo4j-almaren_2.12:0.1.4-3.3"
+spark-shell --master "local[*]" --packages "com.github.music-of-the-ainur:almaren-framework_2.12:0.9.10-3.4,com.github.music-of-the-ainur:neo4j-almaren_2.12:0.1.4-3.4"
 ```
 For 2.13:
 ```
-spark-shell --master "local[*]" --packages "com.github.music-of-the-ainur:almaren-framework_2.13:0.9.10-3.3,com.github.music-of-the-ainur:neo4j-almaren_2.13:0.1.4-3.3"
+spark-shell --master "local[*]" --packages "com.github.music-of-the-ainur:almaren-framework_2.13:0.9.10-3.4,com.github.music-of-the-ainur:neo4j-almaren_2.13:0.1.4-3.4"
 ```
 
 ### Connector Usage
